@@ -66,7 +66,7 @@ export default class SignatureScreen extends React.Component {
 }
 
 SignatureScreen.navigationOptions = {
-  header: null,
+  title: 'Signature Demo',
 };
 
 const styles = StyleSheet.create({
