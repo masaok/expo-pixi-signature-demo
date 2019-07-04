@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import SignatureScreen from '../screens/SignatureScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -67,7 +68,24 @@ SettingsStack.navigationOptions = {
 
 SettingsStack.path = '';
 
+const SignatureStack = createStackNavigator(
+  {
+    Signature: SignatureScreen,
+  },
+  config
+);
+
+SignatureStack.navigationOptions = {
+  tabBarLabel: 'Signature',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+  ),
+};
+
+SignatureStack.path = '';
+
 const tabNavigator = createBottomTabNavigator({
+  SignatureStack,
   HomeStack,
   LinksStack,
   SettingsStack,
